@@ -1,0 +1,173 @@
+---
+title: "Evaluating Normality of Hindfoot Length in Male and Female Rodents"
+author: "Nathalie Garcia"
+date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document
+---
+
+```{r setup, include = FALSE}
+# Setup code that will be executed but not printed
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+## Introduction
+
+```
+  The study of morphological characteristics in rodent populations is important for understanding their ecological and evolutionary impacts. This statistical research focuses on hindfoot length, a trait that offers insights into their mobility, habit use, and overall fitness (Arregoitia 2017). Accurate statsical analysis of such traits requires ensuring the normality of data since many parametric tests assume normally distributed variables (Noel 2021). Ensuring the normality of data is particularly cruicial in ecological studies because misinterpretations can lead to inaccurate conclusions about ecological processes. Such inaccuracies can affect ecological management and conservation effforts, potentially leading to ineffective or harmful interventions (Sit 1998). 
+  
+  This study aims to evaluate whether hindfoot length in rodents is normally distributed across different sexes and species by using data from “The Portal Project: A Long-Term Study of a Chihuahuan Desert Ecosystem”. The Portal Project, which began in the 1970, provides 40 year’s worth of data on rodent populations in a desert grassland habitat ecosystem in Portal, Arizona. The dataset is accessible through the ‘ratdat’ package and it includes measurements like hindfoot length, species identification, and sex of the rodents captured. The primary hypothesis of this study is that hindfoot length in rodents is normally distributed, regardless of sex and species. To test this hypotheis, Q-Q plots and Shapiro-Wilk tests will be used to evaluate normality. 
+
+```
+## Materials and Methods
+
+```
+  The data for this study was collected from a long term controlled ecological environment. Rodent sampling occured monthly and was strategically scheduled to align as closely as possible to the new moon to minimize the influence of moonlight on rodent behavior. Sherman traps were used for capturing rodents and were baited with millet to atract them. For each Rodent captured, detailed records were kept including the species, sex, reproductive condition, weight, and hindfoot length. 24 fenced plots measuring 20-hectares in length were use. The Rodents of interest were able to selectivly access these plots through controlled use of 16 gates surrounding each plot. 
+  
+  The primary focus of this statistical analysis of the data gathered from this research was to determine if hindfoot length among captured rodents is normally distributed, considering both sex and species. The data was analyzed using R (v. 4.4.1 The R Foundation for Statistical Computing 2024). The analysis began with preparing data by first locating rodent data in ratdat's complete data and then sub-setting that data by species, sex, and hindfoot length. Once that was done, the sex and hindfoot length vectors were cleaned by excluding blank and 'NA' data. Additionally, the data was futher filtered to exclude data with sample sizes that had more than 5000 observations in order to meet Shapiro Wilk test criteria. Speices that were found to have a sample size that were less than 30 were also excluded to minimize factors that can contribute to departures of normality.  It was observed that 4 species did not meet the set sample size requirments and were excluded (Table 2). Although female data for fulvescens, merriami, ochrognathus and taylori did meet the valid conditions for sample size, the paired male data did not, so they were also excluded from the data set.(Table 2). After filtering was completed, a final data set with the variables of interest was created and named as 'final.rodent'. Q-Q plots were then created with this final data set to visually inspect departures from normality. Lastly, Shapiro-Wilk tests were conducted to assess the normality of hindfoot length distributions for each species-sex group. 
+
+  ```
+
+## Analysis and Results
+
+ ```
+   Upon analysis, the data demonstatred that hindfoot length is not a normally distributed variable regardless of species and sex (Table 3). Visually, the Q-Q plots for all 12 species across gender depart from normality (Figures 1-24). Both male and female albigula data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.88289, p-value = 5.0275e-18 & Shapiro-Wilk test for females: W = 0.91707, p-value = 6.1855e-18). Both male and female baileyi data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. male Shapiro-Wilk test: W = 0.63185, p-value = 4.7764e-15 & female Shapiro-Wilk test: W = 0.80248, p-value = 7.7422e-41). Both male and female eremicus data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.84331, p-value = 4.2062e-25 & Shapiro-Wilk test for females: W = 0.84766, p-value = 1.7912e-22). Both male and female flavus data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.81331, p-value = 6.3634e-29 & Shapiro-Wilk test for females: W = 0.60746, p-value = 1.854e-37) Both male and female hispidus data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.93745, p-value = 1.5427e-03 & Shapiro-Wilk test for females: W = 0.9559, p-value = 3.7084e-03). Both male and female leucogaster data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.67827, p-value = 3.5298e-29 & Shapiro-Wilk test for females: W = 0.90906, p-value = 1.5219e-15).Both male and female maniculatus data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.72891, p-value = 2.7526e-27 & Shapiro-Wilk test for females: W = 0.75523, p-value = 8.9143e-23). Both male and female megalotis data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.81420, p-value = 3.2387e-36 & Shapiro-Wilk test for females: W = .82943, p-value = 4.2775e-33). Both male and female ordii data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.8288, p-value = 1.0291e-38 & Shapiro-Wilk test for females: W = 0.79035, p-value = 2.9742e-37). Both male and female penicillatus data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.88578, p-value = 2.3347e-31 & Shapiro-Wilk test for females: W = 0.79053, p-value = 5.5665e-41). Both male and female spectabilis data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.97248, p-value = 1.7822e-13 & Shapiro-Wilk test for females: W = 0.96075, p-value = 3.7195e-16). Both male and female torridus data show significant deviations from a normal distribution, confirming that hindfoot length is not normally distributed in this species at alpha = 0.05 (Table 3. Shapiro-Wilk test for males: W = 0.83934, p-value = 4.2544e-32 & Shapiro-Wilk test for females: W = 0.58814, p-value = 9.4814e-44).   
+ 
+
+ ```
+
+```{r}
+
+# Loading data
+library(ratdat)
+library(kableExtra)
+
+# ordering and sub setting data
+data(package = "ratdat")
+data("complete", package = "ratdat")
+rodent.data <- subset(complete, taxa == "Rodent")
+
+# Creating a Data Frame with subjects of interest
+rodent.subset <- rodent.data[,c("species", "sex", "hindfoot_length")]
+
+# Removing NA data
+rodent.clean <- rodent.subset[!is.na(rodent.subset$hindfoot_length) & rodent.subset$sex != "", ]
+
+# Filtering out data where 30 <= n <= 5000 (to meet Shapiro Wilk test criteria)
+species.sex.n <- aggregate(hindfoot_length ~ species + sex, data = rodent.clean, length)
+valid.size <- subset(species.sex.n, hindfoot_length >= 30 & hindfoot_length <= 5000)
+
+
+# Sorting valid data 
+species.count <- table(valid.size$species)
+valid.species <- names(species.count[species.count == 2])
+valid.size <- subset(valid.size, species %in% valid.species)
+valid.data <- with(rodent.clean, paste(species, sex) %in% paste(valid.size$species, valid.size$sex))
+
+# final data set 
+rodent.final <- rodent.clean[valid.data, ]
+species.list <- unique(rodent.final$species)
+sex.list  <- unique(rodent.final$sex)
+
+# Summary of final data  
+
+kable(valid.size, caption = "Table 1. Final valid list of species to be analyzed") %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+# Table 1. List of species with valid sample size to use for QQ Plots and Shapiro Wilk tests
+
+# Table of species excluded from analysis 
+invalid.data <- subset(species.sex.n, hindfoot_length < 30 | hindfoot_length > 5000)
+kable(invalid.data, caption = "Table 2. List of species excluded from analysis due to invalid sample size") %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+  
+```
+
+```{r}
+# Creating a function to make QQ plots for each species based on gender
+plots.per.page <- 6
+num.plots <- length(species.list) * length(sex.list)
+num.pages <- ceiling(num.plots / plots.per.page)
+plot_index <- 1
+
+for (page in 1:num.pages) {
+   par(mfrow = c(2, 3), mar = c(4, 4, 2, 1))
+  for (i in 1:plots.per.page) {
+    if (plot_index <= num.plots){
+      species_index <- (plot_index - 1) %/% length(sex.list) + 1
+      sex_index <- (plot_index - 1) %% length(sex.list) + 1
+        species <- species.list[species_index]
+        sex <- sex.list[sex_index]
+        subset_data <- rodent.final[rodent.final$species == species & rodent.final$sex == sex, ]
+      if (nrow(subset_data) > 0) {
+          qqnorm(subset_data$hindfoot_length, main = paste("Species:", species, "\nSex:", sex), ylab = "Hindfoot Length")
+          qqline(subset_data$hindfoot_length)
+     } else {
+        plot.new()
+        text(0.5, 0.5, paste("No data for", species, "\nSex:", sex))
+     }
+        plot_index <- plot_index + 1
+  }
+  }
+}
+# Figures 1 - 24. QQ Plots of 24 Rodent species based on sex.
+```
+
+```{r}
+# Creating a Function than runs Shapiro Wilk test (SWT) on all species based on gender
+SWT <- function(data) {
+  species.list <-unique(data$species)
+  sex.list <- unique(data$sex)
+  results <- data.frame(Species = character(), Sex = character(), W = numeric(), p.value = numeric(), stringsAsFactors = F)
+  
+  for (species in species.list) {
+    for (sex in sex.list) {
+      subset_data <- data[data$species == species & data$sex == sex, ]
+      if (nrow(subset_data) > 0) {
+        shapiro_test <- shapiro.test(subset_data$hindfoot_length)
+        results <- rbind(results, data.frame(species = species, Sex = sex, W = shapiro_test$statistic, p.value = shapiro_test$p.value))
+      }
+    }
+  }
+  results$p.value <- format(results$p.value, scientific = T)
+  return(results)
+}
+
+shapiro_results <- SWT(rodent.final)
+
+#Ordering data
+results.sorted <- shapiro_results[order(shapiro_results$species),]
+
+# Summary of a Shapiro Wilk test done on all species based on sex with p-values and w statistic.
+kable(results.sorted, caption = "Table 3. Shapiro Wilk Test on males and females of 12 Rodent species ") %>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+```
+
+
+## Discussion
+```
+  The underlying assumption of this study was that hindfoot length is a normally distributed variable regardless of species and sex in rodents. The results of this analysis consistently showed significant deviations from normality for all species and sex groups examined, which refutes the original hypothesis. These finding were supported by the Shapiro-Wilk tests and visual inspections of Q-Q plots, which revealed substantial departures from normal distribution patterns. Although this data does not meet the normal test assumptions, testing other cirteria like homogeneity of variance using levenes test is still important to check in order determine which type of statistical test is appropriate to use for futher evaluation. Non-parametic test like the Mann-Whitney U test could be considered for further analysis or data transformations could be considered to meet normality assumptions, allowing for the use of parametric tests. 
+  
+  In general, understanding the normality of data is important to minimizing Type I and Type II errors in statistical analysis. Minimizing these errors can improve the robustness and reliability of ecological studies. Assuming normality when data is in fact not normally distributed could lead to erroneous conclusions about the relationships between hindfoot length and other ecological variables. These findings highlight the importance of testing and validating statistical assumptions in ecological and evolutionary research. By adopting appropriate statistical methods and considering the underlying factors contributing to trait distributions, researchers can make more accurate and meaningful inferences about rodent populations and their ecological and evolutionary dynamics (Sit 1998). 
+  
+  
+  
+```
+
+## Acknowledgements
+
+*Thank anyone who provided assistance.*
+
+## References
+ 
+ ```
+ Ernest, S. K. M., Yenni, G. M., Allington, G., & Christensen, E. (2020). The Portal Project: a long term study of a Chihuahuan desert ecosystem . Cold Spring Harbor Laboratory, 1–23. https://doi.org/ https://doi.org/10.1101/332783 *
+ 
+  Noel, D. D., Gnoan, K., & Alphonse, A. K. (2021). Normality Assessment of Several Quantitative Data Transformation Procedures. Biostatistics and Biometrics, 10(3), 1–15. https://doi.org/DOI: 10.19080/BBOAJ.2021.10.555786 
+   
+  Sit, Vera, Taylor, Brenda (1998). Statistical Methods for Adaptive Management Studies. Res. Br.,
+B.C. Min. For., Res. Br., Victoria, BC, Land Manage. Handb. No. 42.
+  
+  Verde Arregoitia, L. D., Fisher, D. O., & Schweizer, M. (2017). Morphology captures diet and locomotor types in rodents. Royal Society Open Science, 1–14. https://doi.org/https://doi.org/10.1098/rsos.160957 
+  
+  ```
