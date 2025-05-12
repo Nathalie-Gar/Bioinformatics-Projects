@@ -21,11 +21,11 @@ Depending on the project, you’ll need:
 ## Table of Contents
 
 1. Python
-   a.) Global Alignment Project
-3. R
-   a.) RNAseq R project analyzing expression data 
-5. BASH
-   a.) Alignment Script   
+   - Global Alignment Project
+2. R
+   - RNAseq R project analyzing expression data 
+3. BASH
+   - Alignment Script   
 
 ---
 
