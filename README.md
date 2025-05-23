@@ -23,9 +23,10 @@ Depending on the project, you’ll need:
 1. Python
    - Global Alignment Project
 2. R
-   - RNAseq R project analyzing expression data 
-3. BASH
-   - Alignment Script   
+   - Normality testing
+   - RNAseq R project analyzing expression data (in progess)
+4. BASH
+   - Alignment Script (in progress)
 
 ---
 
