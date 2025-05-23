@@ -16,3 +16,6 @@ This project investigates whether the hindfoot length of rodents, stratified by 
   install.packages("ratdat")
   library(ratdat)
   data("complete", package = "ratdat")
+
+## Analysis Repot in RMarkdown
+You may view the fully rendered report here:
