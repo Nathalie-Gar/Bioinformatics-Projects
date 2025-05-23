@@ -2,6 +2,8 @@
 
 **Author:** Nathalie Garcia  
 **Last updated:** 05 August 2024
+You may view the fully rendered report here:
+https://rpubs.com/Nathalie-Gar/1314114
 
 ## Overview
 
@@ -17,6 +19,5 @@ This project investigates whether the hindfoot length of rodents, stratified by 
   library(ratdat)
   data("complete", package = "ratdat")
 
-## Analysis Report in RMarkdown
-You may view the fully rendered report here:
-https://rpubs.com/Nathalie-Gar/1314114
+
+
