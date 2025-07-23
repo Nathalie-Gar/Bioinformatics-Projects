@@ -8,7 +8,7 @@ https://rpubs.com/Nathalie-Gar/1314114
 
 ## Overview
 
-This project investigates whether the hindfoot length of rodents, stratified by sex and species, follows a normal distribution. Data come from the long-term “Portal Project” desert ecosystem study and are accessed via the `ratdat` R package
+This project investigates whether the hindfoot length of rodents, stratified by sex and species, follows a normal distribution. Data comes from the long-term “Portal Project” desert ecosystem study and are accessed via the `ratdat` R package
 
 ## Data Source
 
