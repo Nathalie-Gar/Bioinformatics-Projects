@@ -22,6 +22,7 @@ Depending on the project, you’ll need:
 
 1. Python
    - Global Alignment Project
+   - Antibiotic Resistance Classification Part I (EDA) & Part II (Predictive Modeling)
 2. R
    - Normality testing
    - RNAseq R project analyzing expression data (in progess)
