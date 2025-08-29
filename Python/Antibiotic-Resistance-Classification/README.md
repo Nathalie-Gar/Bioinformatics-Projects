@@ -1,45 +1,38 @@
-# Antibiotic Resistance in *E. coli* – Part I: Exploratory Analysis
+# Antibiotic Resistance in *E. coli* – Gene Expression Classification
 
-This project explores gene expression patterns in *E. coli* strains evolved under antibiotic pressure (GSE59408).  
-The goal is to see whether expression profiles naturally separate by **antibiotic type** or by **mechanism of action (MOA)**, and to prepare the data for supervised machine learning in Part II.
+This project uses microarray data (GSE59408) from *E. coli* strains evolved under 10 antibiotics to explore whether gene expression patterns can be used to classify antibiotic resistance. The project is split into **two parts**:
+
+---
+
+## 🔹 Part I – Exploratory Data Analysis (EDA)
+The first part focuses on **unsupervised analysis** to see whether resistant strains cluster naturally by antibiotic type or by mechanism of action (MOA).  
+Methods used:
+- Variance-based gene filtering (top 2000 most variable genes)  
+- PCA with scree plots and scatterplots  
+- UMAP for nonlinear visualization  
+- Silhouette scores to measure cluster separability  
+- Heatmaps comparing average expression profiles by **drug** vs. **MOA**  
+
+**Key findings (Part I):**
+- At the **drug level**, clustering was weak with heavy overlap (silhouette ≈ –0.12).  
+- At the **MOA level**, structure was slightly clearer (silhouette ≈ 0), especially for cephalosporins and fluoroquinolones.  
+- Heatmaps supported this: drug-level averages were noisy, while MOA-level averages produced coherent transcriptional signatures.  
+- Overall: **mechanism of action explains more variance than drug identity, but unsupervised methods alone cannot classify the groups well.**
+
+---
+
+## 🔹 Part II – Machine Learning (in progress)
+The second part will focus on **supervised classification models** using PCA-reduced features:
+- Train baseline models (e.g., logistic regression) at both the drug and MOA level  
+- Use cross-validation to assess predictive power  
+- Compare whether ML can separate antibiotics more effectively than unsupervised methods  
 
 ---
 
 ## 📊 Dataset
-- **Accession:** [GSE59408](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59408) (microarray expression data)  
-- **Samples:** 40 resistant strains (4 replicates × 10 antibiotics) + 2 parent controls  
-- **Design:** Parallel laboratory evolution under single-drug selection, transcriptomes profiled post-evolution  
-
----
-
-## 🧪 Methods (Part I – EDA)
-- Variance-based filtering to keep top 2000 most variable genes  
-- Standardization with `StandardScaler`  
-- Dimensionality reduction:
-  - PCA with scree plots, PC1–PC3 scatterplots  
-  - UMAP (various parameters) for nonlinear visualization  
-- Cluster evaluation with **silhouette scores**  
-- Heatmaps of top-variance genes (averaged by drug and by MOA)
-
----
-
-## 🔎 Results (Part I)
-- **PCA & UMAP:**  
-  - Antibiotic-level clustering was weak with major overlap  
-  - MOA-level grouping showed clearer structure, especially for cephalosporins and fluoroquinolones  
-- **Silhouette scores:**  
-  - Drug-level ≈ –0.12 → poor separation  
-  - MOA-level ≈ –0.00 → weak but improved  
-- **Heatmaps:**  
-  - By drug → noisy and overlapping  
-  - By MOA → cleaner signatures, cephalosporins & fluoroquinolones clustered tightly  
-
----
-
-## 🚀 Next Steps (Part II – Machine Learning)
-- Use PCA-reduced features to train supervised classifiers  
-- Compare performance on **drug-level** vs **MOA-level** prediction  
-- Evaluate models with cross-validation  
+- **Accession:** [GSE59408](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE59408)  
+- **Samples:** 40 resistant strains (4 per drug × 10 drugs) + 2 parent controls  
+- **Design:** Parallel laboratory evolution under single-drug selection, followed by transcriptome profiling  
 
 ---
 
